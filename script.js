@@ -1,15 +1,12 @@
-// Exercise 1
+// Exercise 1 - write the getSmallestNumber function using the forEach function
 
-function getDivideByFunction(numberToDivideWith) {
-    function divideBy(numberToDivide) {
-        return numberToDivide / numberToDivideWith;
+function getSmallestNumber(numbersObject) {
+    const smallestNumber = [];
+    for (let i = 0; i < numbersObject.length; ++i) {
+        if (numbersObject[i] < smallestNumber) {
+            smallestNumber.push(numbersObject[i]);
+        }
     }
-    return divideBy;
+    return smallestNumber[smallestNumber.length - 1]
 }
-
-const divideByFive = getDivideByFunction(5);
-console.log(divideByFive(10)); // 2
-console.log(divideByFive(50)); // 10
-const divideByTwo = getDivideByFunction(2);
-console.log(divideByTwo(8)); // 4
-console.log(divideByTwo(50)); // 25
+console.log(getSmallestNumber([2, -5, 10, 1, 4]));
