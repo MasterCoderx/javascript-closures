@@ -50,3 +50,15 @@ function findUserWithFullName(arrayOfUsers, userFullName) {
 }
 const kate = findUserWithFullName(usersArray, 'Kate Williams');
 console.log(kate.heightInCm); // 169
+
+// Exercise 4 - write the getNegativeNumbers function using the filter function
+
+function getNegativeFunction(arrayOfNumbers) {
+    return arrayOfNumbers.filter(function (number) {
+        if (number < 0) {
+            return number;
+        }
+    });
+}
+
+console.log(getNegativeFunction([1, -5, -3, 12, -152])); // [-5, -3, -152]
