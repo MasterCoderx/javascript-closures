@@ -24,3 +24,29 @@ function getSquaredNumbers(arrayOfNumbers) {
 console.log(getSquaredNumbers([1, 2, 3, 4, 5])); // [1, 4, 9, 16, 25]
 console.log(getSquaredNumbers([6, 7, 8, 9, 10])); // [36, 49, 64, 81, 100]
 
+// Exercise 3 - write findUserWithFullName using the .find function
+
+const usersArray = [
+    {
+        firstName: 'John',
+        lastName: 'Smith',
+        heightInCm: 184
+    },
+    {
+        firstName: 'Kate',
+        lastName: 'Williams',
+        heightInCm: 169
+    }
+]
+
+function findUserWithFullName(arrayOfUsers, userFullName) {
+    user = arrayOfUsers.find(function (userObject) {
+        const firstName = userObject.firstName;
+        const lastName = userObject.lastName;
+        const desiredFullName = firstName + ' ' + lastName;
+        return userFullName === desiredFullName;
+    });
+    return user;
+}
+const kate = findUserWithFullName(usersArray, 'Kate Williams');
+console.log(kate.heightInCm); // 169
