@@ -62,3 +62,18 @@ function getNegativeFunction(arrayOfNumbers) {
 }
 
 console.log(getNegativeFunction([1, -5, -3, 12, -152])); // [-5, -3, -152]
+
+// Exercise 5 - write the getDivideByFunction
+
+function getDivideByFunction(numberToDivideBy) {
+    return function getNumber(numberToDivide) {
+        return numberToDivide / numberToDivideBy;
+    }
+}
+
+const divideByFive = getDivideByFunction(5);
+console.log(divideByFive(10)); // 2
+console.log(divideByFive(50)); // 10
+const divideByTwo = getDivideByFunction(2);
+console.log(divideByTwo(8)); // 4
+console.log(divideByTwo(50)); // 25
