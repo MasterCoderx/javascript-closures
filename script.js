@@ -158,3 +158,13 @@ function getDoubledNumbersArray(numbersToDouble) {
 }
 
 console.log(getDoubledNumbersArray([1, 2, 3]))
+
+//Exercise 11 - Given a set of numbers, return the additive inverse of each. Each positive becomes negatives, and the negatives become positives.
+
+function invert(numbersToInvert) {
+    return numbersToInvert.map(function (numberToInvert) {
+        return numberToInvert * -1;
+    })
+}
+
+console.log(invert([1,2,3,4,5]));
