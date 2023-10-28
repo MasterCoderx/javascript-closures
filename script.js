@@ -148,3 +148,13 @@ function findNeedle(junkArray) {
 }
 
 console.log(findNeedle(arrayOfJunk));
+
+// Exercise 10 - Given an array of integers, return a new array with each value doubled. Using .map
+
+function getDoubledNumbersArray(numbersToDouble) {
+    return numbersToDouble.map(function (numberToDouble) {
+        return numberToDouble * 2;
+    })
+}
+
+console.log(getDoubledNumbersArray([1, 2, 3]))
