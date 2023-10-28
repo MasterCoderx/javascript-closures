@@ -135,3 +135,16 @@ function getNumberOfSheep(arrayOfSheep) {
 }
 
 console.log(getNumberOfSheep(sheepArray));
+
+// Exercise 9 - Write a function findNeedle() that takes an array full of junk but containing one "needle"
+
+arrayOfJunk = ["hay", "junk", "hay", "hay", "moreJunk", "needle", "randomJunk"]
+
+function findNeedle(junkArray) {
+    const position = junkArray.findIndex(function (searchItem) {
+        return searchItem === 'needle';
+    });
+    return `Found the needle at position ${position}.`
+}
+
+console.log(findNeedle(arrayOfJunk));
