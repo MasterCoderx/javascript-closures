@@ -180,3 +180,15 @@ function calculateAverageGrade(gradesArray) {
     return Math.floor(sumOfGrades / numberOfGrades);
 }
 console.log(calculateAverageGrade([3, 5, 7.7, 5.5]));
+
+// Exercise 13 - Write isStringInArray function using .find function
+
+function isStringInArray(arrayOfStrings, stringToConfirmPresence) {
+    const stringInArray = arrayOfStrings.find(function (element) {
+        return element === stringToConfirmPresence;
+    });
+    return (stringInArray === stringToConfirmPresence);
+}
+
+console.log(isStringInArray(['Orange', 'Apple'], 'Apple')); // true
+console.log(isStringInArray(['Onion', 'Cabbage'], 'Potato')); // false
