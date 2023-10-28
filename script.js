@@ -99,3 +99,17 @@ console.log(getDelta({ a: 4, b: 0 })); // -48
 // The nested function returns NaN if any of the arguments are missing
 console.log(getDeltaFunction({ a: 1, c: 3 })()); // NaN
 console.log(getDeltaFunction({ a: 1, c: 3 })({ b: 15 })); // 213
+
+// Exercise 7 - You get an array of numbers, return the sum of all of the positives ones.
+
+function getSumOfPositiveNumbers(numbersArray) {
+    let sumOfPositiveNumbers = 0;
+    numbersArray.filter(function (number) {
+        if (number > 0) {
+             return sumOfPositiveNumbers += number;
+        }
+    })
+    return sumOfPositiveNumbers;
+}
+
+console.log(getSumOfPositiveNumbers([1,-4,7,12]));
