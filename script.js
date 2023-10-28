@@ -104,7 +104,7 @@ console.log(getDeltaFunction({ a: 1, c: 3 })({ b: 15 })); // 213
 
 function getSumOfPositiveNumbers(numbersArray) {
     let sumOfPositiveNumbers = 0;
-    numbersArray.filter(function (number) {
+    numbersArray.forEach(function (number) {
         if (number > 0) {
              return sumOfPositiveNumbers += number;
         }
@@ -113,3 +113,4 @@ function getSumOfPositiveNumbers(numbersArray) {
 }
 
 console.log(getSumOfPositiveNumbers([1,-4,7,12]));
+
