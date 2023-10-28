@@ -114,3 +114,24 @@ function getSumOfPositiveNumbers(numbersArray) {
 
 console.log(getSumOfPositiveNumbers([1,-4,7,12]));
 
+// Exercise 8 - We need a function that counts the number of sheep present in the array (true means present). Using .filter
+
+
+const sheepArray =[true,  true,  true,  false,
+    true,  true,  true,  true ,
+    true,  false, true,  false,
+    true,  false, false, true ,
+    true,  true,  true,  true ,
+    false, false, true,  true];
+
+function getNumberOfSheep(arrayOfSheep) {
+    let presentSheep = [];
+    arrayOfSheep.filter(function (present) {
+        if(present === true) {
+            return presentSheep.push(present);
+        }
+    })
+    return presentSheep.length;
+}
+
+console.log(getNumberOfSheep(sheepArray));
