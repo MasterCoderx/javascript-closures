@@ -168,3 +168,15 @@ function invert(numbersToInvert) {
 }
 
 console.log(invert([1,2,3,4,5]));
+
+// Exercise 12 - Calculate an average of school subject grades, rounded down to the nearest integer using .forEach function.
+
+function calculateAverageGrade(gradesArray) {
+    let sumOfGrades = 0;
+    let numberOfGrades = gradesArray.length;
+    gradesArray.forEach(function (grade) {
+        return sumOfGrades += grade
+    });
+    return Math.floor(sumOfGrades / numberOfGrades);
+}
+console.log(calculateAverageGrade([3, 5, 7.7, 5.5]));
