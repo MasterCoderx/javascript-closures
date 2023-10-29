@@ -192,3 +192,15 @@ function isStringInArray(arrayOfStrings, stringToConfirmPresence) {
 
 console.log(isStringInArray(['Orange', 'Apple'], 'Apple')); // true
 console.log(isStringInArray(['Onion', 'Cabbage'], 'Potato')); // false
+
+// Exercise 14 - write the .forEach function from scratch using a for loop.
+
+const arrayOfVegetables =['potato', 'carrot', 'courgette', 'aubergine', 'onion'];
+
+for(let i = 0; i < arrayOfVegetables.length; ++i) {
+           const element = arrayOfVegetables[i];
+           console.log(element);
+}
+
+
+
