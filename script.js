@@ -202,7 +202,8 @@ for(let i = 0; i < arrayOfVegetables.length; ++i) {
            console.log(element);
 }
 
-// Exercise 15 - Create the executeAfterFiveSeconds function that calls the provided function after five seconds
+// Exercise 15 - Create the executeAfterFiveSeconds function
+// that calls the provided function after five seconds
 
 const arrayToIterate = ['apple', 'cherry', 'lemon', 'banana']
 
@@ -212,3 +213,18 @@ function iterateOverAnArray() {
     });
 }
 setTimeout(iterateOverAnArray, (5*1000))
+
+// Exercise 16 - create the getRandomIntegerGenerator function. It should return a function that returns
+// a random integer between two provided numbers.
+
+function getRandomIntegerGenerator(firstNumber, secondNumber) {
+    return function randomIntegerGenerator(newFirstNumber, newSecondNumber) {
+        const numberOne = newFirstNumber ?? firstNumber;
+        const numberTwo =  newSecondNumber ?? secondNumber;
+        return Math.ceil(Math.random()*(numberOne-numberTwo)+numberTwo);
+    }
+}
+
+const getRandomDigit = getRandomIntegerGenerator(0, 9);
+console.log(getRandomDigit()); // random number between 0 and 9
+console.log(getRandomIntegerGenerator(-10, 10)()); // random number between -10 and 10
