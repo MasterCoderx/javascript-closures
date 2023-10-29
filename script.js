@@ -202,5 +202,13 @@ for(let i = 0; i < arrayOfVegetables.length; ++i) {
            console.log(element);
 }
 
+// Exercise 15 - Create the executeAfterFiveSeconds function that calls the provided function after five seconds
 
+const arrayToIterate = ['apple', 'cherry', 'lemon', 'banana']
 
+function iterateOverAnArray() {
+    return arrayToIterate.forEach(function (element) {
+        return console.log(element);
+    });
+}
+setTimeout(iterateOverAnArray, (5*1000))
