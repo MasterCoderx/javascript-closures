@@ -40,7 +40,7 @@ const usersArray = [
 ]
 
 function findUserWithFullName(arrayOfUsers, userFullName) {
-    user = arrayOfUsers.find(function (userObject) {
+    const user = arrayOfUsers.find(function (userObject) {
         const firstName = userObject.firstName;
         const lastName = userObject.lastName;
         const desiredFullName = firstName + ' ' + lastName;
@@ -53,15 +53,13 @@ console.log(kate.heightInCm); // 169
 
 // Exercise 4 - write the getNegativeNumbers function using the filter function
 
-function getNegativeFunction(arrayOfNumbers) {
+function getNegativeNumbers(arrayOfNumbers) {
     return arrayOfNumbers.filter(function (number) {
-        if (number < 0) {
-            return number;
-        }
+    return number < 0;
     });
 }
 
-console.log(getNegativeFunction([1, -5, -3, 12, -152])); // [-5, -3, -152]
+console.log(getNegativeNumbers([1, -5, -3, 12, -152])); // [-5, -3, -152]
 
 // Exercise 5 - write the getDivideByFunction
 
@@ -125,11 +123,8 @@ const sheepArray =[true,  true,  true,  false,
     false, false, true,  true];
 
 function getNumberOfSheep(arrayOfSheep) {
-    let presentSheep = [];
-    arrayOfSheep.filter(function (present) {
-        if(present === true) {
-            return presentSheep.push(present);
-        }
+    const presentSheep = arrayOfSheep.filter(function (present) {
+        return present === true
     })
     return presentSheep.length;
 }
@@ -138,7 +133,7 @@ console.log(getNumberOfSheep(sheepArray));
 
 // Exercise 9 - Write a function findNeedle() that takes an array full of junk but containing one "needle"
 
-arrayOfJunk = ["hay", "junk", "hay", "hay", "moreJunk", "needle", "randomJunk"]
+const arrayOfJunk = ["hay", "junk", "hay", "hay", "moreJunk", "needle", "randomJunk"];
 
 function findNeedle(junkArray) {
     const position = junkArray.findIndex(function (searchItem) {
@@ -169,13 +164,13 @@ function invert(numbersToInvert) {
 
 console.log(invert([1,2,3,4,5]));
 
-// Exercise 12 - Calculate an average of school subject grades, rounded down to the nearest integer using .forEach function.
+// Exercise 12 - Calculate an average of school subject grades, rounded down to the nearest integer using .forEach function
 
 function calculateAverageGrade(gradesArray) {
     let sumOfGrades = 0;
-    let numberOfGrades = gradesArray.length;
+    const numberOfGrades = gradesArray.length;
     gradesArray.forEach(function (grade) {
-        return sumOfGrades += grade
+        return sumOfGrades += grade;
     });
     return Math.floor(sumOfGrades / numberOfGrades);
 }
@@ -187,7 +182,7 @@ function isStringInArray(arrayOfStrings, stringToConfirmPresence) {
     const stringInArray = arrayOfStrings.find(function (element) {
         return element === stringToConfirmPresence;
     });
-    return (stringInArray === stringToConfirmPresence);
+    return stringInArray === stringToConfirmPresence;
 }
 
 console.log(isStringInArray(['Orange', 'Apple'], 'Apple')); // true
@@ -195,12 +190,52 @@ console.log(isStringInArray(['Onion', 'Cabbage'], 'Potato')); // false
 
 // Exercise 14 - write the .forEach function from scratch using a for loop.
 
-const arrayOfVegetables =['potato', 'carrot', 'courgette', 'aubergine', 'onion'];
+const vegetables = ['Carrot', 'Cabbage', 'Onion'];
+/*
+let i = 0;
+i < 3;
+console.log(0);
+i = i + 1;
+i < 3;
+console.log(1);
+i = i + 1;
+i < 3;
+console.log(2);
+i = i + 1;
+i < 3;
 
-for(let i = 0; i < arrayOfVegetables.length; ++i) {
-           const element = arrayOfVegetables[i];
-           console.log(element);
+ */
+for (let i = 0; i < 3; i = i + 1) {
+    console.log(i);
 }
+/*
+1. .forEach służy do wywoływania callback'a tyle razy ile znajduje się elementów w tablicy
+2. Do każdego wywoływania callback'a jest przekazany kolejny element tablicy.
+3. Drugim argumentem jest index.
+ */
+function forEach(array, callback) {
+    for (let i = 0; i < array.length; ++i) {
+        const element = array[i];
+        callback(element, i);
+    }
+}
+function printVegetable(vegetable, index) {
+    console.log(vegetable, index);
+}
+forEach(vegetables, printVegetable);
+// Carrot 0
+// Cabbage 1
+// Onion 2
+const fruits = ['Apple', 'Orange', 'Watermelon'];
+forEach(
+    fruits,
+    function(fruit, index) {
+        console.log(fruit, index);
+    }
+)
+// Apple 0
+// Orange 1
+// Watermelon 2
 
 // Exercise 15 - Create the executeAfterFiveSeconds function
 // that calls the provided function after five seconds
@@ -212,7 +247,10 @@ function iterateOverAnArray() {
         return console.log(element);
     });
 }
-setTimeout(iterateOverAnArray, (5*1000))
+function executeAfterFiveSeconds(functionToCall, time){
+    return setTimeout(functionToCall, time);
+}
+executeAfterFiveSeconds(iterateOverAnArray, (5*1000))
 
 // Exercise 16 - create the getRandomIntegerGenerator function. It should return a function that returns
 // a random integer between two provided numbers.
