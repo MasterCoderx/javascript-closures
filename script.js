@@ -266,3 +266,39 @@ function getRandomIntegerGenerator(firstNumber, secondNumber) {
 const getRandomDigit = getRandomIntegerGenerator(0, 9);
 console.log(getRandomDigit()); // random number between 0 and 9
 console.log(getRandomIntegerGenerator(-10, 10)()); // random number between -10 and 10
+
+// Exercise 17 - Create the findObjectProperty function that returns the name of the property from an object.
+// it works similarly to .find built into Javascript but works with an object instead of an array
+// if there is no matching property name return:
+
+
+function findObjectProperty(object, recallFunction) {
+    const objectParameters = Object.values(object);
+    const objectKeys = Object.keys(object);
+    for (let i = 0; i < objectParameters.length; ++i) {
+        if (recallFunction(objectParameters[i])) {
+            return objectKeys[i];
+        }
+    }
+}
+const redApple = {
+    color: 'red',
+    weightInGrams: 150
+}
+
+const propertyName = findObjectProperty(redApple, function(propertyValue) {
+    return propertyValue === 'red';
+})
+console.log(propertyName); // color
+
+const john = {
+    name: 'John',
+    bestFriend: {
+        name: 'Adam'
+    }
+}
+
+const adamPropertyName = findObjectProperty(john, function(propertyValue) {
+    return propertyValue && propertyValue.name === 'Adam';
+})
+console.log(adamPropertyName); // bestFriend
