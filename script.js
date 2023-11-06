@@ -302,3 +302,22 @@ const adamPropertyName = findObjectProperty(john, function(propertyValue) {
     return propertyValue && propertyValue.name === 'Adam';
 })
 console.log(adamPropertyName); // bestFriend
+
+// Exercise 18 - Create the getRandomCharacterGenerator function.
+// It should return a function that returns a random character from the provided string.
+
+function getRandomCharacterGenerator(providedString) {
+    return function getRandomCharacterFromTheProvidedString(newStringForRandomCharacter) {
+        const newString = newStringForRandomCharacter ?? providedString;
+        const stringLength = newString.length;
+        const randomCharacterIndex = Math.ceil(Math.random()*(0 - stringLength) + stringLength);
+        const stringToArray = newString.split('')
+        return stringToArray[randomCharacterIndex];
+    };
+}
+
+const getRandomDigitTwo = getRandomCharacterGenerator('0123456789');
+console.log(getRandomDigitTwo()); // returns a random string that contains a single digit
+
+const getRandomABC = getRandomCharacterGenerator('abcABC');
+console.log(getRandomABC()); // returns a random string that is a, A, b, B, c, or C
