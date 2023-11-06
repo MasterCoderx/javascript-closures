@@ -321,3 +321,22 @@ console.log(getRandomDigitTwo()); // returns a random string that contains a sin
 
 const getRandomABC = getRandomCharacterGenerator('abcABC');
 console.log(getRandomABC()); // returns a random string that is a, A, b, B, c, or C
+
+// Exercise 19 - Crete the getPrefixedStringGenerator function. It should return a function which returns a string
+// with the prefix added
+
+function getPrefixedStringGenerator(prefix) {
+    return function getStringPrefixed (name) {
+        return prefix + name ;
+    }
+}
+const prefixStringWithMister = getPrefixedStringGenerator('Mr.');
+console.log(prefixStringWithMister(' John')); // Mr. John
+console.log(prefixStringWithMister(' Adam')); // Mr. Adam
+const prefixStringWithMiss = getPrefixedStringGenerator('Ms.');
+console.log(prefixStringWithMiss(' Kate')); // Ms. Kate
+console.log(prefixStringWithMiss(' Julie')); // Ms. Julie
+const prefixStringWithNegative = getPrefixedStringGenerator('un');
+console.log(prefixStringWithNegative('happy')); // unhappy
+console.log(prefixStringWithNegative('productive')); // unproductive
+console.log(prefixStringWithNegative('fair')); // unfair
